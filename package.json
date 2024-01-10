@@ -1,0 +1,22 @@
+{
+  "name": "mernblog",
+  "version": "1.0.0",
+  "description": "mern_Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breadan/mernBlog.git"
+  },
+  "keywords": [
+    "js29117"
+  ],
+  "author": "Breadan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breadan/mernBlog/issues"
+  },
+  "homepage": "https://github.com/breadan/mernBlog#readme"
+}
