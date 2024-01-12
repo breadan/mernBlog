@@ -3,7 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv"; //secure 1
 import "./database/dbConnection/connection.js";
 
-const port =  process.env.PORT
+const port =  process.env.PORT || 8000
+const mode = process.env.NODE_ENV 
 //secure 2
 dotenv.config();
 
@@ -21,5 +22,5 @@ app.get("/", (req, res) => res.send(" World!"));
 // app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
+  console.log(`Example app running on port ${port} mode: ${mode}! ^_^ `);
 });
