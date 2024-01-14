@@ -1,6 +1,6 @@
-import { Schema, model,mongoose } from "mongoose";
+import { Schema, model, mongoose } from "mongoose";
 import Joi from "joi";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
   {
@@ -55,11 +55,15 @@ const userSchema = new Schema(
 );
 
 //generate Auth Token
-const generateAuthToken= userSchema.methods.generateAuthToken =  function () {
-  return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-};
+const generateAuthToken = (userSchema.methods.generateAuthToken = function () {
+  return jwt.sign(
+    { id: this._id, isAdmin: this.isAdmin },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    }
+  );
+});
 
 //validate register:
 const validateUser = (obj) => {
@@ -68,7 +72,6 @@ const validateUser = (obj) => {
     email: Joi.string().trim().min(3).max(30).required().email(),
     password: Joi.string().trim().min(3).max(30).required(),
     age: Joi.number().min(18).max(100).required(),
-
   });
   return schema.validate(obj);
 };
@@ -88,10 +91,16 @@ const validateUpdateUser = (obj) => {
     name: Joi.string().trim().min(3).max(30),
     password: Joi.string().trim().min(3).max(30),
     age: Joi.number().min(18).max(100).required(),
-    bio: Joi.string()
+    bio: Joi.string(),
   });
   return schema.validate(obj);
 };
 
- const User = mongoose.model("User", userSchema);
- export { User,validateUser, validateLogin, generateAuthToken, validateUpdateUser  };
+const User = mongoose.model("User", userSchema);
+export {
+  User,
+  validateUser,
+  validateLogin,
+  generateAuthToken,
+  validateUpdateUser,
+};

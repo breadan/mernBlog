@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import asyncHandler from "express-async-handler";
 
 const verifyToken = (req, res, next) => {
   const authToken = req.headers.authorization;
@@ -25,9 +26,19 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+const verifyMailer = (req, res, next) => {
+  verifyToken(req, res, () => {
+    User.findOneAndUpdate({ email: decodedPayload.email }, { verified: true });
+    res.status(200).json({
+      status: httpStatusText.SUCCESS,
+      message: "Email Verified! Controller",
+    });
+  });
+};
+
 //verify tokenis admin access
 const verifyAdminAccess = (req, res, next) => {
-  verifyToken (req, res, () => {
+  verifyToken(req, res, () => {
     if (req.user.isAdmin) {
       next();
     } else {
@@ -36,11 +47,11 @@ const verifyAdminAccess = (req, res, next) => {
         message: "Not Allowed, Only Admin",
       });
     }
-  })
-}
+  });
+};
 
 const verifyUserAccess = (req, res, next) => {
-  verifyToken (req, res, () => {
+  verifyToken(req, res, () => {
     if (req.user.id === req.params.id) {
       next();
     } else {
@@ -49,10 +60,10 @@ const verifyUserAccess = (req, res, next) => {
         message: "Not Allowed, Only User can access His Profile",
       });
     }
-  })
-}
+  });
+};
 const verifyUserAndAdmin = (req, res, next) => {
-  verifyToken (req, res, () => {
+  verifyToken(req, res, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {
@@ -61,7 +72,13 @@ const verifyUserAndAdmin = (req, res, next) => {
         message: "Not Allowed, Only User can access His Profile or Admin",
       });
     }
-  })
-}
+  });
+};
 
-export { verifyToken, verifyAdminAccess, verifyUserAccess, verifyUserAndAdmin };
+export {
+  verifyToken,
+  verifyAdminAccess,
+  verifyUserAccess,
+  verifyUserAndAdmin,
+  verifyMailer,
+};
