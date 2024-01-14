@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import express from "express";
-const app = express();
 import "dotenv/config";
 
+const app = express();
 
 export default mongoose;
 const url = process.env.MONGO_URL;
@@ -14,7 +14,8 @@ mongoose
     console.log("db connection established");
   })
   .catch((error) => {
-    console.log("db Error", error);
+    console.error("db Error", error);
+    process.exit(1);        //to stop node applications
   });
 
 mongoose.connection.on("connected", () => {
