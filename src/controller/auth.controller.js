@@ -30,25 +30,27 @@ const registerUser = asyncHandler(async (req, res) => {
       Status: false,
       message: "User already exists",
     });
-  }
-  //hash password
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-  const newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: hashedPassword,
-    age: req.body.age,
-  });
-  const savedUser = await newUser.save();
-  // to verify email
-  sendEmail({ email: req.body.email });
+  }else {
 
-  res.status(201).json({
-    Status: true,
-    message: "User created successfully",
-    user: savedUser,
-  });
+    //hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    // to verify email
+    // sendEmail({ email });
+    const newUser = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+      age: req.body.age,
+    });
+    const savedUser = await newUser.save();
+  
+    res.status(201).json({
+      Status: true,
+      message: "User created successfully",
+      user: savedUser,
+    });
+  }
   //# => sending email To verify account
   res.status(200).json({ message: "User created successfully Please Log In" });
 });

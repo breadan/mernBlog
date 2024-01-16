@@ -1,4 +1,4 @@
-export const htmlCode = (token) => {
+export const htmlCode = () => {
   return `
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -473,7 +473,7 @@ export const htmlCode = (token) => {
                               <tbody>
                                 <tr align="center">
                                   <td align="center" valign="middle" style="border-collapse:collapse;">
-                                  <a class="buttonText" href= "http://localhost:7000/v1/verify/${token}" target="_blank" style="color: #4A90E2;text-decoration: none;font-weight: normal;display: block;border: 2px solid #585858;padding: 10px 80px;font-family: Arial;">Verify</a>
+                                  <a class="buttonText" href= "#" target="_blank" style="color: #4A90E2;text-decoration: none;font-weight: normal;display: block;border: 2px solid #585858;padding: 10px 80px;font-family: Arial;">Verify</a>
                                   </td>
                                 </tr>
                               </tbody>
