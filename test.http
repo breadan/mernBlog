@@ -29,7 +29,6 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY1YTAzOGZmYWZi
 
 }
 
-
 #### login
 POST http://localhost:7000/api/auth/login
 content-type: application/json
