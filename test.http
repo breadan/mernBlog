@@ -29,13 +29,12 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY1YTAzOGZmYWZi
 
 }
 
-
 #### login
-POST http://localhost:5000/v1/signin
+POST http://localhost:7000/api/auth/login
 content-type: application/json
 
 {
- "email": "cafive3s132@talmetry.com",
+  "email": "cafivse3s132@talmetry.com",
   "password": "password123"
 }
 
@@ -70,6 +69,8 @@ Content-Disposition: form-data; name="image"; filename="1.png"
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY1YTAzOGZmYWZiYWRjNDhmYTY1M2Y1NiIsIm5hbWUiOiJKb2huRG9lIiwiZW1haWwiOiJjYWZpdmUzczEzMkB0YWxtZXRyeS5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRSWldqS3hBdFlMRXNUbWxTS0ZuTmdPdmpNSE9RMXV6dGU0SHQ1T0tjSjNDaU9tOEdTSThoSyIsImFnZSI6MjUsInZlcmlmaWVkIjpmYWxzZSwiaXNBY3RpdmUiOnRydWUsInJvbGUiOiJ1c2VyIiwiY3JlYXRlZEF0IjoiMjAyNC0wMS0xMVQxODo1Mjo0Ny4zMDBaIiwidXBkYXRlZEF0IjoiMjAyNC0wMS0xMVQxODo1Mjo0Ny4zMDBaIiwiX192IjowfSwiaWF0IjoxNzA1MDAxMDMxLCJleHAiOjE3MDUwMDQ2MzF9.HzArRZYZ_SWT5LoBF6cplEG61is766jyauDQ7sRDdGY
 Content-Type: image/png
 
-< ./1.png
-------WebKitFormBoundary7MA4YWxkTrZu0gW-->
+### count users
 
+GET http://localhost:7000/api/users/count
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTY1ZmNiYzI2Mjk3YTYyNzA1ZmE5ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU0MDI1MTAsImV4cCI6MTcwNTQwNjExMH0.kIHLjXwgqyrptd3Q5ixSvpmRKUG20AK25bjyFJDXSAo

@@ -95,8 +95,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 */
 
 const getUsersCount = asyncHandler(async (req, res) => {
-  const User = await User.find();
-  User.count({ age: 20 }).then((count) => {
+  User.countDocuments({ age: 25 }).then((count) => {
     console.log(count);
   });
 });
@@ -139,12 +138,10 @@ const profilePhoto = asyncHandler(async (req, res) => {
   await user.save();
 
   //7
-  res
-    .status(200)
-    .json({
-      message: "Profile Photo Uploaded Successfully",
-      profilePhoto: { url: result.secure_url, publicId: result.public_id },
-    });
+  res.status(200).json({
+    message: "Profile Photo Uploaded Successfully",
+    profilePhoto: { url: result.secure_url, publicId: result.public_id },
+  });
   fs.unlinkSync(imagePath);
 });
 
