@@ -18,11 +18,7 @@ app.use(userRouter);
 // app.use("/v1/messages", messageRouter);
 app.get("/", (req, res) => res.send(" World!"));
 
-// app.all("*", (req, res, next) => {
-//   next(new AppError(`This Resource Is Not Available ${req.originalUrl}`, 404));
-// });
 
-// app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Example app running on port ${port} mode: ${mode}! ^_^ `);

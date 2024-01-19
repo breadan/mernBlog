@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
+import  {User}  from "../models/user.model.js";
+import { updateUserProfile } from "../controller/user.controller.js";
 
 const verifyToken = (req, res, next) => {
   const authToken = req.headers.authorization;
@@ -26,14 +28,26 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const verifyMailer = (req, res, next) => {
-  verifyToken(req, res, () => {
-    User.findOneAndUpdate({ email: decodedPayload.email }, { verified: true });
-    res.status(200).json({
-      status: httpStatusText.SUCCESS,
-      message: "Email Verified! Controller",
-    });
-  });
+const verifyMailer =  (req, res, next) => {
+ const {token} = req.params;
+ console.log(token)
+  jwt.verify(token, process.env.VERIFY_SECRET, async (err, decoded) => {
+   if (err) {
+     return res.status(401).json({
+       Status: false,
+       message: "Invalid Token",
+     });
+   } 
+    console.log(decoded.id )
+    const id = decoded.id
+ const updateUser =  await User.findByIdAndUpdate(id, {verified: true}, {new: true});
+   return res.status(200).json({
+     Status: true,
+     message: "Email Verified",
+     updateUser
+   });
+   
+ })
 };
 
 //verify tokenis admin access

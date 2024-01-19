@@ -96,7 +96,7 @@ const validateUpdateUser = (obj) => {
   return schema.validate(obj);
 };
 
-const User = mongoose.model("User", userSchema);
+const User = model("User", userSchema);
 export {
   User,
   validateUser,

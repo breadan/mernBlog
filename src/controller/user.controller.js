@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import { User, validateUpdateUser } from "../models/user.model.js";
+import { User } from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import { dirname } from "path";
 import * as path from "path";
@@ -53,13 +53,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 */
 
 const updateUserProfile = asyncHandler(async (req, res) => {
-  const { error } = validateUpdateUser(req.body);
-  if (error) {
-    return res.status(400).json({
-      status: 400,
-      error: error.details[0].message,
-    });
-  }
+
   const user = await User.findById(req.params.id);
   if (!user) {
     return res.status(404).json({
@@ -95,10 +89,15 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 */
 
 const getUsersCount = asyncHandler(async (req, res) => {
-  const User = await User.find();
-  User.count({ age: 20 }).then((count) => {
-    console.log(count);
-  });
+  const users = await User.find().countDocuments()
+  if (users) {
+    res.status(201).json(users);
+  } else {
+    return res.status(404).json({
+      status: 404,
+      message: "No users found",
+    });
+  }
 });
 
 /*
@@ -139,12 +138,10 @@ const profilePhoto = asyncHandler(async (req, res) => {
   await user.save();
 
   //7
-  res
-    .status(200)
-    .json({
-      message: "Profile Photo Uploaded Successfully",
-      profilePhoto: { url: result.secure_url, publicId: result.public_id },
-    });
+  res.status(200).json({
+    message: "Profile Photo Uploaded Successfully",
+    profilePhoto: { url: result.secure_url, publicId: result.public_id },
+  });
   fs.unlinkSync(imagePath);
 });
 

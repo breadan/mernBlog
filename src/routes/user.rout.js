@@ -3,6 +3,7 @@ import { deleteUserProfile, getAllUsers, getUserProfile, getUsersCount, profileP
 import { verifyAdminAccess, verifyToken, verifyUserAccess, verifyUserAndAdmin } from "../middlewares/verifyToken.js";
 import { validateId } from "../middlewares/validateId.js";
 import { photoUpload } from "../middlewares/photoUpload.js";
+import { validateUpdateUser } from "../models/user.model.js";
 
 const userRouter = express.Router();
 
@@ -10,7 +11,7 @@ const userRouter = express.Router();
 userRouter.get("/api/users/profile",[verifyAdminAccess], getAllUsers);
 userRouter.get("/api/users/count",[verifyAdminAccess], getUsersCount);
 userRouter.get("/api/users/profile/:id", [validateId], getUserProfile);
-userRouter.put("/api/users/profile/:id", [validateId, verifyUserAccess], updateUserProfile);
+userRouter.put("/api/users/profile/:id", [validateId, verifyUserAccess,validateUpdateUser], updateUserProfile);
 userRouter.post("/api/users/profile/profile-Photo/:id", [ verifyToken, photoUpload.single("image")], profilePhoto);
 userRouter.delete("/api/users/profile/:id", [validateId, verifyUserAndAdmin], deleteUserProfile);
 

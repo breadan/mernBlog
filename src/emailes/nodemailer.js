@@ -19,7 +19,7 @@ export  const sendEmail = async (options) => {
       to: options.email, // list of receivers
       subject: "Hello ✔", // Subject line
       text: "Hello world?", // plain text body
-      html: htmlCode(), // html body
+      html: htmlCode(options.api), // html body
     });
 
     console.log("Message sent: %s", info.messageId);

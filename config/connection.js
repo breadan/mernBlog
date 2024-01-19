@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import "dotenv/config";
 
-const app = express();
+// const app = express();
 
 export default mongoose;
 const url = process.env.MONGO_URL;
@@ -10,7 +10,7 @@ const url = process.env.MONGO_URL;
 mongoose
   .connect(url, {})
   .then(() => {
-    console.log("posses", process.env.MONGO_URL);
+    // console.log("posses", process.env.MONGO_URL);
     console.log("db connection established");
   })
   .catch((error) => {
