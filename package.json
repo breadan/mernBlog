@@ -5,7 +5,9 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "dev": "nodemon app"
+    "dev": "nodemon app",
+    "start:production": "NODE_ENV=production node index.mjs"
+
   },
   "repository": {
     "type": "git",

@@ -12,10 +12,6 @@ mongoose
   .then(() => {
     // console.log("posses", process.env.MONGO_URL);
     console.log("db connection established");
-  })
-  .catch((error) => {
-    console.error("db Error", error);
-    process.exit(1);        //to stop node applications
   });
 
 mongoose.connection.on("connected", () => {
@@ -35,4 +31,12 @@ process.on("SIGINT", async () => {
   process.exit(0);
 });
 
+//UnHandleRejection Error
+process.on("unhandledRejection", (err) => {
+  console.log(`Unhandled Rejection Error: ${err.name} | ${err.message}`);
+  server.close(() => {
+    console.log(`Shutting down.....`)
+    process.exit(1);
+  });
+});
 
