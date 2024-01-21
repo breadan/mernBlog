@@ -89,7 +89,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 */
 
 const getUsersCount = asyncHandler(async (req, res) => {
-<<<<<<< HEAD
   const users = await User.find().countDocuments()
   if (users) {
     res.status(201).json(users);
@@ -99,11 +98,9 @@ const getUsersCount = asyncHandler(async (req, res) => {
       message: "No users found",
     });
   }
-=======
   User.countDocuments({ age: 25 }).then((count) => {
     console.log(count);
   });
->>>>>>> 892b231fdc3da3c6d35c3c9202e0eeef60066114
 });
 
 /*
