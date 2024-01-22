@@ -4,7 +4,7 @@ import dotenv from "dotenv"; //secure 1
 import "./config/connection.js";
 import authRouter from "./src/routes/auth.routs.js";
 import userRouter from "./src/routes/user.rout.js";
-import { ApiError } from "./utils/apiError.js";
+import { ApiError } from "./src/utils/apiError.js"
 import { globalError } from "./src/middlewares/err.middlware.js";
 
 

@@ -7,6 +7,7 @@ import {
   generateAuthToken,
 } from "../models/user.model.js";
 import { sendEmail } from "../emailes/nodemailer.js";
+import { ApiError } from "../utils/apiError.js";
 /*
 #Desc: Register
 #Rout: /api/auth/register
@@ -15,7 +16,6 @@ import { sendEmail } from "../emailes/nodemailer.js";
 */
 
 const registerUser = asyncHandler(async (req, res) => {
-<<<<<<< HEAD
 const {name, email, password, age} = req.body
   const existsUser = await User.findOne({ email});
   if (existsUser) {
@@ -37,57 +37,50 @@ const {name, email, password, age} = req.body
       Status: true,
       message: "User created successfully",
       newUser,
-    });
+    })}
   
-=======
-  const user = await User.findOne({ email: req.body.email });
+  // const user = await User.findOne({ email: req.body.email });
 
-  // NOTE: this should be a middleware
-  // check validate
-  const { error } = validateUser(req.body);
+  // // NOTE: this should be a middleware
+  // // check validate
+  // const { error } = validateUser(req.body);
 
-  if (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.details[0].message,
-    });
-  }
-  //check if user is exists already
-  if (user) {
-    return res.status(409).json({
-      Status: false,
-      message: "User already exists",
-    });
->>>>>>> 892b231fdc3da3c6d35c3c9202e0eeef60066114
-  }
+  // if (error) {
+  //   return res.status(400).json({
+  //     success: false,
+  //     message: error.details[0].message,
+  //   });
+  // }
+  // //check if user is exists already
+  // if (user) {
+  //   return res.status(409).json({
+  //     Status: false,
+  //     message: "User already exists",
+  //   });
+  // }
 
-  //Note: it is repetitive to make an else statement here as we are returning in the if statement
 
-  //Note: move the password hashing to a presave hook in the user model
-  //hash password
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-  // to verify email
-  // sendEmail({ email });
-  const newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: hashedPassword,
-    age: req.body.age,
-  });
-  const savedUser = await newUser.save();
+  // //hash password
+  // const salt = await bcrypt.genSalt(10);
+  // const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  // // to verify email
+  // // sendEmail({ email });
+  // const newUser = new User({
+  //   name: req.body.name,
+  //   email: req.body.email,
+  //   password: hashedPassword,
+  //   age: req.body.age,
+  // });
+  // const savedUser = await newUser.save();
 
-  res.status(201).json({
-    Status: true,
-    message: "User created successfully",
-    user: savedUser,
-  });
+  // res.status(201).json({
+  //   Status: true,
+  //   message: "User created successfully",
+  //   user: savedUser,
+  // });
 
   //# => sending email To verify account
-<<<<<<< HEAD
   // res.status(200).json({ message: "User created successfully Please Log In" });
-=======
->>>>>>> 892b231fdc3da3c6d35c3c9202e0eeef60066114
 });
 
 /*
@@ -131,8 +124,6 @@ const loginUser = asyncHandler(async (req, res) => {
       token,
     });
   }
-<<<<<<< HEAD
-=======
 
   const token = user.generateAuthToken(); //it create new token
   res.status(200).json({
@@ -141,7 +132,6 @@ const loginUser = asyncHandler(async (req, res) => {
     profilePhoto: user.profilePhoto,
     token,
   });
->>>>>>> 892b231fdc3da3c6d35c3c9202e0eeef60066114
 });
 
 export { registerUser, loginUser };
