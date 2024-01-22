@@ -6,7 +6,7 @@ import { validateUser } from "../models/user.model.js";
 
 const authRouter = express.Router();
 
-authRouter.post("/api/auth/register",registerUser);
+authRouter.post("/api/auth/register",validateUser,registerUser);
 authRouter.post("/api/auth/login",loginUser);
 authRouter.get("/api/user/auth/verifyEmail/:token", verifyMailer);
 
