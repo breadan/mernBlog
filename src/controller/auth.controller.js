@@ -48,14 +48,6 @@ const {name, email, password, age} = req.body
 #Access: public
 */
 const loginUser = asyncHandler(async (req, res) => {
-  // check validate
-  const { error } = validateLogin(req.body);
-  if (error) {
-    return res.status(400).json({
-      status: false,
-      message: error.details[0].message,
-    });
-  }
 
   //check if user is exists already
   const user = await User.findOne({ email: req.body.email });
@@ -82,14 +74,6 @@ const loginUser = asyncHandler(async (req, res) => {
       token,
     });
   }
-
-  const token = user.generateAuthToken(); //it create new token
-  res.status(200).json({
-    _id: user._id,
-    isAdmin: user.isAdmin,
-    profilePhoto: user.profilePhoto,
-    token,
-  });
 });
 
 export { registerUser, loginUser };

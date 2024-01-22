@@ -66,24 +66,51 @@ const generateAuthToken = (userSchema.methods.generateAuthToken = function () {
 });
 
 //validate register:
-const validateUser = (obj) => {
+// const validateUser = (obj) => {
+//   const schema = Joi.object({
+//     name: Joi.string().trim().min(3).max(30).required(),
+//     email: Joi.string().trim().min(3).max(30).required().email(),
+//     password: Joi.string().trim().min(3).max(30).required(),
+//     age: Joi.number().min(18).max(100).required(),
+//   });
+//   return schema.validate(obj);
+// };
+
+
+//validate register:
+const validateUser = (req, res, next) => {
   const schema = Joi.object({
     name: Joi.string().trim().min(3).max(30).required(),
     email: Joi.string().trim().min(3).max(30).required().email(),
     password: Joi.string().trim().min(3).max(30).required(),
     age: Joi.number().min(18).max(100).required(),
   });
-  return schema.validate(obj);
+  const { value, error } = schema.validate(req.body);
+
+  if (error) throw error
+
+  req.body = value
+
+  return next()
 };
 
 //validate register:
-const validateLogin = (obj) => {
+
+const validateLogin = (req, res, next) => {
   const schema = Joi.object({
     email: Joi.string().trim().min(3).max(30).required().email(),
     password: Joi.string().trim().min(3).max(30).required(),
   });
-  return schema.validate(obj);
+  const { value, error } = schema.validate(req.body);
+
+  if (error) throw error
+
+  req.body = value
+
+  return next()
 };
+
+
 
 //validate update:
 const validateUpdateUser = (obj) => {

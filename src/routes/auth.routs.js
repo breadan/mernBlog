@@ -2,7 +2,7 @@ import { verify } from "crypto";
 import {loginUser, registerUser} from "../controller/auth.controller.js";
 import express from "express";
 import { verifyMailer } from "../middlewares/verifyToken.js";
-import { validateUser } from "../models/user.model.js";
+import { validateLogin, validateUser } from "../models/user.model.js";
 
 const authRouter = express.Router();
 
