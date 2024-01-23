@@ -22,6 +22,7 @@ const {name, email, password, age} = req.body
     return res.status(400).json({
       Status: false,
       message: "User already exists",
+      
     });
   }else {
 
@@ -31,7 +32,6 @@ const {name, email, password, age} = req.body
     const newUser = await User.create({name, email,password:hashedPassword, age});//if use insertMeny put newUser[0].id
     console.log(newUser._id)
     const tokenVerifying = jwt.sign({id: newUser._id}, process.env.VERIFY_SECRET)
-    console.log(tokenVerifying)
     sendEmail({email, api: `http://localhost:7000/api/user/auth/verifyEmail/${tokenVerifying}`})
     res.status(201).json({
       Status: true,
@@ -51,6 +51,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   //check if user is exists already
   const user = await User.findOne({ email: req.body.email });
+  console.log(user)
   if (!user) {
     return res.status(400).json({
       Status: false,

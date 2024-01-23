@@ -113,14 +113,21 @@ const validateLogin = (req, res, next) => {
 
 
 //validate update:
-const validateUpdateUser = (obj) => {
+const validateUpdateUser = (req, res, next) => {
   const schema = Joi.object({
     name: Joi.string().trim().min(3).max(30),
     password: Joi.string().trim().min(3).max(30),
     age: Joi.number().min(18).max(100).required(),
     bio: Joi.string(),
   });
-  return schema.validate(obj);
+  const { value, error } = schema.validate(req.body);
+
+  if (error) throw error
+
+  req.body = value
+
+  return next()
+  // return schema.validate(obj);
 };
 
 const User = model("User", userSchema);
