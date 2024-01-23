@@ -1,13 +1,13 @@
-import asyncHandler from "express-async-handler";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import asyncHandler from 'express-async-handler';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import {
   User,
   validateLogin,
   generateAuthToken,
-} from "../models/user.model.js";
-import { sendEmail } from "../emailes/nodemailer.js";
-import { ApiError } from "../utils/apiError.js";
+} from '../models/user.model.js';
+import { sendEmail } from '../emailes/nodemailer.js';
+import { ApiError } from '../utils/apiError.js';
 /*
 #Desc: Register
 #Rout: /api/auth/register
@@ -16,29 +16,38 @@ import { ApiError } from "../utils/apiError.js";
 */
 
 const registerUser = asyncHandler(async (req, res) => {
-const {name, email, password, age} = req.body
-  const existsUser = await User.findOne({ email});
+  const { name, email, password, age } = req.body;
+  const existsUser = await User.findOne({ email });
   if (existsUser) {
     return res.status(400).json({
       Status: false,
-      message: "User already exists",
-      
+      message: 'User already exists',
     });
-  }else {
-
+  } else {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-   
-    const newUser = await User.create({name, email,password:hashedPassword, age});//if use insertMeny put newUser[0].id
-    console.log(newUser._id)
-    const tokenVerifying = jwt.sign({id: newUser._id}, process.env.VERIFY_SECRET)
-    sendEmail({email, api: `http://localhost:7000/api/user/auth/verifyEmail/${tokenVerifying}`})
+
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+      age,
+    }); //if use insertMeny put newUser[0].id
+    console.log(newUser._id);
+    const tokenVerifying = jwt.sign(
+      { id: newUser._id },
+      process.env.VERIFY_SECRET
+    );
+    sendEmail({
+      email,
+      api: `http://localhost:7000/api/user/auth/verifyEmail/${tokenVerifying}`,
+    });
     res.status(201).json({
       Status: true,
-      message: "User created successfully",
+      message: 'User created successfully',
       newUser,
-    })}
-
+    });
+  }
 });
 
 /*
@@ -48,25 +57,23 @@ const {name, email, password, age} = req.body
 #Access: public
 */
 const loginUser = asyncHandler(async (req, res) => {
-
   //check if user is exists already
   const user = await User.findOne({ email: req.body.email });
-  console.log(user)
+  console.log(user);
   if (!user) {
     return res.status(400).json({
       Status: false,
-      message: "User not found Please Sign Up",
+      message: 'User not found Please Sign Up',
     });
   }
   //check password    //user.password it is in db //req.body.password from clint
   const isMatch = await bcrypt.compare(req.body.password, user.password);
-  if (!isMatch || !user.verified) {
+  if (!isMatch) {
     return res.status(400).json({
       Status: false,
-      message: " Password Wrong OR Your Account Not Valid",
+      message: ' Password Wrong OR Your Account Not Valid',
     });
-  }else {
-
+  } else {
     const token = user.generateAuthToken(); //it create new token
     res.status(200).json({
       _id: user._id,
