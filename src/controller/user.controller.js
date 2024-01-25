@@ -1,12 +1,12 @@
-import asyncHandler from "express-async-handler";
-import { User } from "../models/user.model.js";
-import bcrypt from "bcrypt";
-import { dirname } from "path";
-import * as path from "path";
-import { cloudinaryUpload, cloudinaryRemove } from "../utils/cloudinary.js";
-import fs from "fs";
+import asyncHandler from 'express-async-handler';
+import { User } from '../models/user.model.js';
+import bcrypt from 'bcrypt';
+import { dirname } from 'path';
+import * as path from 'path';
+import { cloudinaryUpload, cloudinaryRemove } from '../utils/cloudinary.js';
+import fs from 'fs';
 
-const __dirname = dirname("../images");
+const __dirname = dirname('../images');
 
 /*
 #Desc: Get All Users Profile
@@ -16,14 +16,14 @@ const __dirname = dirname("../images");
 */
 
 const getAllUsers = asyncHandler(async (req, res) => {
-  const users = await User.find().select("-password");
+  const users = await User.find().select('-password');
   // console.log(req.headers.authorization.split(" ")[1])//to convert to array & take token[1]
   if (users) {
     res.status(201).json(users);
   } else {
     return res.status(404).json({
       status: 404,
-      message: "No users found",
+      message: 'No users found',
     });
   }
 });
@@ -35,11 +35,11 @@ const getAllUsers = asyncHandler(async (req, res) => {
 #Access: public
 */
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id).select("-password");
+  const user = await User.findById(req.params.id).select('-password');
   if (!user) {
     return res.status(404).json({
       status: 404,
-      message: "User not found",
+      message: 'User not found',
     });
   }
   res.status(201).json(user);
@@ -53,12 +53,11 @@ const getUserProfile = asyncHandler(async (req, res) => {
 */
 
 const updateUserProfile = asyncHandler(async (req, res) => {
-
   const user = await User.findById(req.params.id);
   if (!user) {
     return res.status(404).json({
       status: 404,
-      message: "User not found",
+      message: 'User not found',
     });
   }
   if (req.body.password) {
@@ -77,7 +76,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       },
     },
     { new: true }
-  ).select("-password");
+  ).select('-password');
   res.status(201).json(updateUser);
 });
 
@@ -89,13 +88,13 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 */
 
 const getUsersCount = asyncHandler(async (req, res) => {
-  const users = await User.find().countDocuments()
+  const users = await User.find().countDocuments();
   if (users) {
     res.status(201).json(users);
   } else {
     return res.status(404).json({
       status: 404,
-      message: "No users found",
+      message: 'No users found',
     });
   }
   User.countDocuments({ age: 25 }).then((count) => {
@@ -114,7 +113,7 @@ const profilePhoto = asyncHandler(async (req, res) => {
   //1
   console.log(req.file);
   if (!req.file) {
-    return res.status(400).json({ message: "No File Selected" });
+    return res.status(400).json({ message: 'No File Selected' });
   }
   //2
   const imagePath = path.join(__dirname, `./images/${req.file.filename}`);
@@ -128,7 +127,7 @@ const profilePhoto = asyncHandler(async (req, res) => {
   if (!user) {
     return res.status(404).json({
       status: 404,
-      message: "User not found",
+      message: 'User not found',
     });
   }
   if (user.profilePhoto.publicId !== null) {
@@ -142,7 +141,7 @@ const profilePhoto = asyncHandler(async (req, res) => {
 
   //7
   res.status(200).json({
-    message: "Profile Photo Uploaded Successfully",
+    message: 'Profile Photo Uploaded Successfully',
     profilePhoto: { url: result.secure_url, publicId: result.public_id },
   });
   fs.unlinkSync(imagePath);
@@ -169,12 +168,12 @@ const deleteUserProfile = asyncHandler(async (req, res) => {
   if (!user) {
     return res.status(404).json({
       status: 404,
-      message: "User not found",
+      message: 'User not found',
     });
   }
   await cloudinaryRemove(user.profilePhoto.publicId);
   await User.findByIdAndDelete(req.params.id);
-  res.status(200).json({ message: "User Deleted Successfully" });
+  res.status(200).json({ message: 'User Deleted Successfully' });
 });
 
 export {
