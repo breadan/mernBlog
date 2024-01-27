@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Authentication API",
+        "title": "Blog API",
         "version": "1.0.0",
-        "description": "API for user authentication"
+        "description": " for user authentication"
     },
     "servers": [
         {

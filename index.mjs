@@ -32,9 +32,8 @@ const internalDocs = await loadJson();
 const options = {
   swaggerOptions: {
     persistAuthorization: true,
-    title: 'Best Wallet API',
+    title: 'Blog API',
   },
-  customCss: '.topbar { display: none }',
 };
 
 // Swagger
