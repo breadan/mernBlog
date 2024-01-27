@@ -5,8 +5,10 @@ import { dirname } from 'path';
 import * as path from 'path';
 import { cloudinaryUpload, cloudinaryRemove } from '../utils/cloudinary.js';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 
-const __dirname = dirname('../images');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /*
 #Desc: Get All Users Profile
@@ -116,7 +118,13 @@ const profilePhoto = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'No File Selected' });
   }
   //2
-  const imagePath = path.join(__dirname, `./images/${req.file.filename}`);
+  const imagePath = path.join(
+    __dirname,
+    '..',
+    '..',
+    'images',
+    `${req.file.filename}`
+  );
   //3 -in another folder
   //4
   const result = await cloudinaryUpload(imagePath);

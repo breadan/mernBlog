@@ -5,10 +5,10 @@ content-type: application/json
 
 {
   "name": "JohnDoe",
-  "email": "cafivse3s132@talmetry.com",
+  "email": "pitacix602@bitofee.com",
   "password": "password123",
   "age": 25
-  
+
 }
 
 
@@ -34,14 +34,11 @@ POST http://localhost:7000/api/auth/login
 content-type: application/json
 
 {
-  "email": "cafivse3s132@talmetry.com",
+   "email": "pitacix602@bitofee.com",
   "password": "password123"
 }
 
-#### get messages
-GET http://localhost:5000/v1/messages
-content-type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY1YTJiZTI2Njc1MjI3MzczZjA2OThmZSIsIm5hbWUiOiJKb2huRG9lIiwiZW1haWwiOiJjYWZpdmUzczEzMkB0YWxtZXRyeS5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRWRENNbEVPbXBwL09tMXlHSlB4MDQuaUM0b1NQODJFQVB4Sng2MFFkUHJYYUtpYTFIWVBVeSIsImFnZSI6MjUsInByb2ZpbGVQaG90byI6eyJ1cmwiOiJodHRwczovL21lZGlhLmlzdG9ja3Bob3RvLmNvbS9pZC8xMzAwODQ1NjIwL3ZlY3Rvci91c2VyLWljb24tZmxhdC1pc29sYXRlZC1vbi13aGl0ZS1iYWNrZ3JvdW5kLXVzZXItc3ltYm9sLXZlY3Rvci1pbGx1c3RyYXRpb24uanBnP3M9MjA0OHgyMDQ4Jnc9aXMmaz0yMCZjPTZoUU5BQ1FRamt0bmk4Q3hTU19RU1BxSnYydHljc2tZbXBGR3p4djNGTnM9IiwicHVibGljSWQiOm51bGx9LCJ2ZXJpZmllZCI6ZmFsc2UsImlzQWN0aXZlIjp0cnVlLCJyb2xlIjoidXNlciIsImNyZWF0ZWRBdCI6IjIwMjQtMDEtMTNUMTY6NDU6MjYuMTQyWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDEtMTNUMTY6NDU6MjYuMTQyWiIsIl9fdiI6MH0sImlhdCI6MTcwNTE3MzA0NiwiZXhwIjoxNzA1MTc2NjQ2fQ.YYYQx9Beq9hec-tp-F56vEW5xV5S5mc20wz-WEoESQk
+
 #### update user
 PATCH http://localhost:5000/v1/user/659d525f0fe31c066c396476
 content-type: application/json
@@ -66,11 +63,11 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY1YTAzOGZmYWZi
 
 POST http://localhost:7000/api/users/profile/profile-Photo/65af6cd816eb48c99d22c3ec
 Content-Disposition: form-data; name="image"; filename="1.png"
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWY2Y2Q4MTZlYjQ4Yzk5ZDIyYzNlYyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU5OTU1MzYsImV4cCI6MTcwNTk5OTEzNn0.jDtTshLK6k8rYOnffDFaK6I65xJrN9Y8KjG8uXAfnBI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YjU0YzJhZjQ3NTVjZjU4Y2FiMzBlZiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDYzODA1MTMsImV4cCI6MTcwNjM4NDExM30.LQTGC5YOo0izvFENl08YZ5up1V3l19vhCSd5ISyj9B4
 Content-Type: image/png
 
 ### count users
 
 GET http://localhost:7000/api/users/count
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTY1ZmNiYzI2Mjk3YTYyNzA1ZmE5ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU0MDI1MTAsImV4cCI6MTcwNTQwNjExMH0.kIHLjXwgqyrptd3Q5ixSvpmRKUG20AK25bjyFJDXSAo
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YjU0YzJhZjQ3NTVjZjU4Y2FiMzBlZiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDYzODA1MTMsImV4cCI6MTcwNjM4NDExM30.LQTGC5YOo0izvFENl08YZ5up1V3l19vhCSd5ISyj9B4
