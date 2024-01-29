@@ -30,10 +30,10 @@ async function loadJson() {
 const internalDocs = await loadJson();
 
 const options = {
-  swaggerOptions: {
-    persistAuthorization: true,
-    title: 'Blog API',
-  },
+  // swaggerOptions: {
+  //   persistAuthorization: true,
+  //   title: 'Blog API',
+  // },
 };
 
 // Swagger

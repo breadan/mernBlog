@@ -1,12 +1,11 @@
-// all this from nodemailor
-import nodemailer from "nodemailer";
-import { htmlCode } from "../utils/html.js";
-import jwt from "jsonwebtoken";
+import nodemailer from 'nodemailer';
+import { htmlCode } from '../utils/html.js';
+import jwt from 'jsonwebtoken';
 
-export  const sendEmail = async (options) => {
+export const sendEmail = async (options) => {
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: 'gmail',
       auth: {
         user: process.env.APP_EMAIL_ADDRESS,
         pass: process.env.APP_EMAIL_PASSWORD,
@@ -17,12 +16,12 @@ export  const sendEmail = async (options) => {
     const info = await transporter.sendMail({
       from: process.env.APP_EMAIL_ADDRESS, // sender address
       to: options.email, // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
+      subject: 'Hello ✔', // Subject line
+      text: 'Hello world?', // plain text body
       html: htmlCode(options.api), // html body
     });
 
-    console.log("Message sent: %s", info.messageId);
+    console.log('Message sent: %s', info.messageId);
   } catch (err) {
     console.log(err);
   }
