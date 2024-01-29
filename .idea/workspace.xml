@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ebd89478-67fa-405d-ad3a-ca8b6851ee58" name="Changes" comment="git commit -m &quot;oo&quot;" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +39,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/mernStack/mernBlog",
     "node.js.detected.package.eslint": "true",
@@ -62,7 +64,7 @@
       <workItem from="1706315277214" duration="310000" />
       <workItem from="1706544266383" duration="37000" />
       <workItem from="1706550149717" duration="250000" />
-      <workItem from="1706551101470" duration="537000" />
+      <workItem from="1706551101470" duration="1436000" />
     </task>
     <task id="LOCAL؜-٠٠٠٠١" summary="git commit -m &quot;oo&quot;">
       <option name="closed" value="true" />
@@ -72,7 +74,15 @@
       <option name="project" value="LOCAL؜" />
       <updated>1706551465569</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL؜-٠٠٠٠٢" summary="git commit -m &quot;oo&quot;">
+      <option name="closed" value="true" />
+      <created>1706551676538</created>
+      <option name="number" value="٠٠٠٠٢" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٢" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1706551676538</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -33,7 +33,7 @@ const registerUser = asyncHandler(async (req, res) => {
       password: hashedPassword,
       age,
     }); //if use insertMeny put newUser[0].id
-    console.log(newUser._id);
+    // console.log(newUser._id);
     const tokenVerifying = jwt.sign(
       { id: newUser._id },
       process.env.VERIFY_SECRET
