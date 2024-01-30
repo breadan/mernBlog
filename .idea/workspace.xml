@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd89478-67fa-405d-ad3a-ca8b6851ee58" name="Changes" comment="git commit -m &quot;oo&quot;" />
+    <list default="true" id="ebd89478-67fa-405d-ad3a-ca8b6851ee58" name="Changes" comment="git commit -m &quot;oo&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/index.mjs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +40,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "OpenAPI/Swagger Code Generator.swagger.json.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "D:/mernStack/mernBlog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -53,6 +59,36 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="swagger.json" type="SwaggerCodegen" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="generateToPath" value="C:\Users\Eng Alaa\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
+      <option name="jdkPath" value="C:\Program Files\JetBrains\WebStorm 2023.3.3\jbr\bin\java.exe" />
+      <option name="language" value="typescript-node" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="specificationPath" value="D:\mernStack\mernBlog\docs\swagger.json" />
+      <option name="workingDirectory" value="D:\mernStack\mernBlog\docs" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="OpenAPI/Swagger Code Generator.swagger.json" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,6 +101,7 @@
       <workItem from="1706544266383" duration="37000" />
       <workItem from="1706550149717" duration="250000" />
       <workItem from="1706551101470" duration="1436000" />
+      <workItem from="1706605096464" duration="1272000" />
     </task>
     <task id="LOCAL؜-٠٠٠٠١" summary="git commit -m &quot;oo&quot;">
       <option name="closed" value="true" />

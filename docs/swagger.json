@@ -11,6 +11,23 @@
         }
     ],
     "paths": {
+        "/url": {
+            "get": {
+                "description": "New endpoint",
+                "responses": {
+                    "200": {
+                        "description": "New response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "": ""
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/register": {
             "post": {
                 "summary": "Register a new user",

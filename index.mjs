@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 
 import './config/connection.js';
@@ -30,22 +29,24 @@ async function loadJson() {
 const internalDocs = await loadJson();
 
 const options = {
-  // swaggerOptions: {
-  //   persistAuthorization: true,
-  //   title: 'Blog API',
-  // },
+  swaggerOptions: {
+    persistAuthorization: true,
+    title: 'Blog API',
+  },
 };
 
 // Swagger
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(internalDocs, options));
+app.use(`/docs`, swaggerUi.serve, swaggerUi.setup(internalDocs, options));
 
 // Routes
 app.use(authRouter);
 app.use(userRouter);
 // app.use("/v1/messages", messageRouter);
-app.get('/', (req, res) => res.send(' World!'));
+app.get('/', (req,
+              res) => res.send(' World!'));
 
-app.all('*', (req, res, next) => {
+app.all('*', (req,
+              res, next) => {
   // const err = new Error(`Cant find this rout: ${req.originalUrl}`);
   // next(err.message);
   next(new ApiError(`Cant find this rout: ${req.originalUrl}`, 400));
