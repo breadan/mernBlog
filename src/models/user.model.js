@@ -1,6 +1,6 @@
-import { Schema, model, mongoose } from "mongoose";
-import Joi from "joi";
-import jwt from "jsonwebtoken";
+import { Schema, model, mongoose } from 'mongoose';
+import Joi from 'joi';
+import jwt from 'jsonwebtoken';
 
 const userSchema = new Schema(
   {
@@ -23,7 +23,7 @@ const userSchema = new Schema(
     profilePhoto: {
       type: Object,
       default: {
-        url: "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=2048x2048&w=is&k=20&c=6hQNACQQjktni8CxSS_QSPqJv2tycskYmpFGzxv3FNs=",
+        url: 'https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=2048x2048&w=is&k=20&c=6hQNACQQjktni8CxSS_QSPqJv2tycskYmpFGzxv3FNs=',
         publicId: null,
       },
     },
@@ -45,10 +45,10 @@ const userSchema = new Schema(
     role: {
       type: String,
       enum: {
-        values: ["user", "admin"],
-        message: "Invalid role",
+        values: ['user', 'admin'],
+        message: 'Invalid role',
       },
-      default: "user",
+      default: 'user',
     },
   },
   { timestamps: true }
@@ -76,7 +76,6 @@ const generateAuthToken = (userSchema.methods.generateAuthToken = function () {
 //   return schema.validate(obj);
 // };
 
-
 //validate register:
 const validateUser = (req, res, next) => {
   const schema = Joi.object({
@@ -87,11 +86,11 @@ const validateUser = (req, res, next) => {
   });
   const { value, error } = schema.validate(req.body);
 
-  if (error) throw error
+  if (error) throw error;
 
-  req.body = value
+  req.body = value;
 
-  return next()
+  return next();
 };
 
 //validate register:
@@ -101,16 +100,15 @@ const validateLogin = (req, res, next) => {
     email: Joi.string().trim().min(3).max(30).required().email(),
     password: Joi.string().trim().min(3).max(30).required(),
   });
+
   const { value, error } = schema.validate(req.body);
 
-  if (error) throw error
+  if (error) throw error;
 
-  req.body = value
+  req.body = value;
 
-  return next()
+  return next();
 };
-
-
 
 //validate update:
 const validateUpdateUser = (req, res, next) => {
@@ -122,15 +120,15 @@ const validateUpdateUser = (req, res, next) => {
   });
   const { value, error } = schema.validate(req.body);
 
-  if (error) throw error
+  if (error) throw error;
 
-  req.body = value
+  req.body = value;
 
-  return next()
+  return next();
   // return schema.validate(obj);
 };
 
-const User = model("User", userSchema);
+const User = model('User', userSchema);
 export {
   User,
   validateUser,

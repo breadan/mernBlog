@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
       age,
-    }); //if use insertMeny put newUser[0].id
+    }); //if use insertMany put newUser[0].id
     // console.log(newUser._id);
     const tokenVerifying = jwt.sign(
       { id: newUser._id },
@@ -47,6 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
       message: 'User created successfully',
       newUser,
     });
+    console.log(newUser.verified);
   }
 });
 
@@ -59,11 +60,12 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   //check if user is exists already
   const user = await User.findOne({ email: req.body.email });
-  console.log(user);
-  if (!user) {
+  const checkVerify = user.verified;
+  console.log(user.verified);
+  if (!user || checkVerify === 'false') {
     return res.status(400).json({
       Status: false,
-      message: 'User not found Please Sign Up',
+      message: 'User not found Please Sign Up or u did not verify your email',
     });
   }
   //check password    //user.password it is in db //req.body.password from clint

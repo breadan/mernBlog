@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd89478-67fa-405d-ad3a-ca8b6851ee58" name="Changes" comment="git commit -m &quot;oo&quot;">
+    <list default="true" id="ebd89478-67fa-405d-ad3a-ca8b6851ee58" name="Changes" comment="&quot;swagger&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/index.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +24,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="fd781410-75a2-4fdf-8027-58690f0d84e6" />
+        <option name="accountId" value="2e367134-5b72-4249-928f-8726c0eebbb5" />
         <option name="url" value="https://github.com/breadan/mernBlog.git" />
       </UrlAndAccount>
     </option>
@@ -38,27 +37,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "OpenAPI/Swagger Code Generator.swagger.json.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "D:/mernStack/mernBlog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;OpenAPI/Swagger Code Generator.swagger.json.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/mernStack/mernBlog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28134558&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="swagger.json" type="SwaggerCodegen" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
@@ -101,7 +101,8 @@
       <workItem from="1706544266383" duration="37000" />
       <workItem from="1706550149717" duration="250000" />
       <workItem from="1706551101470" duration="1436000" />
-      <workItem from="1706605096464" duration="1272000" />
+      <workItem from="1706605096464" duration="2051000" />
+      <workItem from="1706607205452" duration="40000" />
     </task>
     <task id="LOCAL؜-٠٠٠٠١" summary="git commit -m &quot;oo&quot;">
       <option name="closed" value="true" />
@@ -119,7 +120,15 @@
       <option name="project" value="LOCAL؜" />
       <updated>1706551676538</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL؜-٠٠٠٠٣" summary="&quot;swagger&quot;">
+      <option name="closed" value="true" />
+      <created>1706606822633</created>
+      <option name="number" value="٠٠٠٠٣" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٣" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1706606822633</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +147,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git commit -m &quot;oo&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;oo&quot;" />
+    <MESSAGE value="&quot;swagger&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;swagger&quot;" />
   </component>
 </project>
