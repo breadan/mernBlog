@@ -62,7 +62,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   const checkVerify = user.verified;
   console.log(user.verified);
-  if (!user || checkVerify === 'false') {
+  if (!user || !checkVerify) {
     return res.status(400).json({
       Status: false,
       message: 'User not found Please Sign Up or u did not verify your email',
